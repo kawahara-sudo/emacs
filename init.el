@@ -2,11 +2,13 @@
 
 (require 'package)
 
+;; パッケージ追加
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
 
+;; パッケージ初期化
 (package-initialize)
 
 ;; ***** 共通設定 *****
@@ -66,11 +68,13 @@
 ;; ***** company *****
 
 (require 'company)
+
 ;; 基本設定
 (global-company-mode)
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
+
 ;; カラー設定
 (set-face-attribute 'company-tooltip nil
                     :foreground "black" :background "lightgrey")
@@ -86,12 +90,14 @@
                     :background "orange")
 (set-face-attribute 'company-scrollbar-bg nil
                     :background "gray40")
+
 ;; キー設定
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 ;; ***** Verilog *****
 
+;; verilog-mode設定
 (autoload 'verilog-mode "verilog-mode" "Verilog mode" t)
 (setq verilog-indent-level             2
       verilog-indent-level-module      2
@@ -108,6 +114,8 @@
       verilog-auto-lineup              '(all)
       verilog-linter                   "iverilog"
       )
+
+;; 拡張子設定
 (setq auto-mode-alist
       (append
        '(("\\.v$" . verilog-mode))
