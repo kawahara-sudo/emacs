@@ -63,6 +63,33 @@
 (define-key global-map "\C-c:" 'uncomment-region)    ; コメント解除
 (setq comment-style 'multi-line)
 
+;; ***** company *****
+
+(require 'company)
+;; 基本設定
+(global-company-mode)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
+;; カラー設定
+(set-face-attribute 'company-tooltip nil
+                    :foreground "black" :background "lightgrey")
+(set-face-attribute 'company-tooltip-common nil
+                    :foreground "black" :background "lightgrey")
+(set-face-attribute 'company-tooltip-common-selection nil
+                    :foreground "white" :background "steelblue")
+(set-face-attribute 'company-tooltip-selection nil
+                    :foreground "black" :background "steelblue")
+(set-face-attribute 'company-preview-common nil
+                    :background nil :foreground "lightgrey" :underline t)
+(set-face-attribute 'company-scrollbar-fg nil
+                    :background "orange")
+(set-face-attribute 'company-scrollbar-bg nil
+                    :background "gray40")
+;; キー設定
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+
 ;; ***** Verilog *****
 
 (autoload 'verilog-mode "verilog-mode" "Verilog mode" t)
@@ -86,3 +113,15 @@
        '(("\\.v$" . verilog-mode))
        '(("\\.sv$" . verilog-mode))
        auto-mode-alist))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (company material-theme better-defaults))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
