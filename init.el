@@ -72,6 +72,9 @@
 (global-set-key (kbd "C-x <left>")  'windmove-left)
 (global-set-key (kbd "C-x <right>")  'windmove-right)
 
+;; バックスペースの設定
+(global-set-key "\C-h" 'delete-backward-char)
+
 ;; ***** シンボリック対策 *****
 
 ;; シンボリックリンクの読み込みを許可
